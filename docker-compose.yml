@@ -10,10 +10,10 @@ services:
     volumes:
       - tickets-mysql:/var/lib/mysql
     environment:
-      MYSQL_DATABASE: tickets
-      MYSQL_PASSWORD: insecure # change this to a secure password
-      MYSQL_ROOT_PASSWORD: insecure # change this to a (different) secure password
-      MYSQL_USER: tickets
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
 
   bot:
     image: eartharoid/discord-tickets:4.0
