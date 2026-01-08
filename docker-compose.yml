@@ -1,24 +1,8 @@
 version: "3.9"
 
 services:
-  mysql:
-    image: mysql:8
-    restart: unless-stopped
-    hostname: mysql
-    networks:
-      - discord-tickets
-    volumes:
-      - tickets-mysql:/var/lib/mysql
-    environment:
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_USER: ${MYSQL_USER}
-
   bot:
     image: eartharoid/discord-tickets:4.0
-    depends_on:
-      - mysql
     restart: unless-stopped
     hostname: bot
     networks:
@@ -31,8 +15,6 @@ services:
       - /etc/localtime:/etc/localtime:ro
     tty: true
     stdin_open: true
-    # Please refer to the documentation:
-    # https://discordtickets.app/self-hosting/configuration/#environment-variables
     environment:
       DB_CONNECTION_URL: ${DB_CONNECTION_URL}
       DISABLE_ENCRYPTION: ${DISABLE_ENCRYPTION}
@@ -55,5 +37,4 @@ networks:
   discord-tickets:
 
 volumes:
-  tickets-mysql:
   tickets-bot:
