@@ -34,22 +34,22 @@ services:
     # Please refer to the documentation:
     # https://discordtickets.app/self-hosting/configuration/#environment-variables
     environment:
-      DB_CONNECTION_URL: mysql://tickets:insecure@mysql/tickets # change `insecure` to the MYSQL_PASSWORD you set above
-      DISABLE_ENCRYPTION: "false"
-      DISCORD_SECRET: # required
-      DISCORD_TOKEN: # required
-      ENCRYPTION_KEY: # required
-      DB_PROVIDER: mysql
-      HTTP_EXTERNAL: http://127.0.0.1:8169 # change this to your server's external IP (or domain)
-      HTTP_HOST: 0.0.0.0
-      HTTP_INTERNAL:
-      HTTP_PORT: 8169
-      HTTP_TRUST_PROXY: "false" # set to true if you're using a reverse proxy
-      INVALIDATE_TOKENS:
-      OVERRIDE_ARCHIVE: null
-      PUBLIC_BOT: "false"
-      PUBLISH_COMMANDS: "false"
-      SUPER: 319467558166069248 # optionally add `,youruseridhere`
+      DB_CONNECTION_URL: ${DB_CONNECTION_URL}
+      DISABLE_ENCRYPTION: ${DISABLE_ENCRYPTION}
+      DISCORD_SECRET: ${DISCORD_SECRET}
+      DISCORD_TOKEN: ${DISCORD_TOKEN}
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+      DB_PROVIDER: ${DB_PROVIDER}
+      HTTP_EXTERNAL: ${HTTP_EXTERNAL}
+      HTTP_HOST: ${HTTP_HOST}
+      HTTP_INTERNAL: ${HTTP_INTERNAL}
+      HTTP_PORT: ${HTTP_PORT}
+      HTTP_TRUST_PROXY: ${HTTP_TRUST_PROXY}
+      INVALIDATE_TOKENS: ${INVALIDATE_TOKENS}
+      OVERRIDE_ARCHIVE: ${OVERRIDE_ARCHIVE}
+      PUBLIC_BOT: ${PUBLIC_BOT}
+      PUBLISH_COMMANDS: ${PUBLISH_COMMANDS}
+      SUPER: ${SUPER}
 
 networks:
   discord-tickets:
